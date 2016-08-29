@@ -1,5 +1,11 @@
 var hooks={};
-
+var hooknames=["attackHook","chatHook","continueDestroyBlock","destroyBlock","projectileHitEntityHook","eatHook","entityAddedHook","entityHurtHook","entityRemovedHook","explodeHook","serverMessageReceiveHook","deathHook","playerAddExpHook","playerExpLevelChangeHook","redstoneUpdateHook","screenChangeHook","newLevel","startDestroyBlock","projectileHitBlockHook","modTick","useItem"];
+var i = 0;
+	while(i < hooknames.length) {
+    	hooks[hooknames[i]]=[];
+    	i=(i+1)|0;
+	}
+i=null;
 function addHook(hookname,callback){
 	switch(hookname){
 		case "attackHook":
@@ -91,6 +97,8 @@ function addHook(hookname,callback){
 		break;
 	}
 }
+
+// can use preventDefault()
 function attackHook(attacker, victim){
 	var i = 0;
 	while(i < hooks["attackHook"].length) {
