@@ -1,0 +1,2 @@
+# ScriptModLoader
+ScriptMODをまとめて管理できるようなナニカ
