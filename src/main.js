@@ -1,4 +1,4 @@
-var sml.name="ScriptMODLoader";
+var sml.modname="ScriptMODLoader";
 var sml.version=1;
 var sml.hooks={};
 var sml.hooknames=["attackHook","chatHook","continueDestroyBlock","destroyBlock","projectileHitEntityHook","eatHook","entityAddedHook","entityHurtHook","entityRemovedHook","explodeHook","serverMessageReceiveHook","deathHook","playerAddExpHook","playerExpLevelChangeHook","redstoneUpdateHook","screenChangeHook","newLevel","startDestroyBlock","projectileHitBlockHook","modTick","useItem"];
