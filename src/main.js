@@ -1,3 +1,9 @@
+/*
+Copyright (c) 2016 maa123
+Twitter:maa123_LQ
+
+WEB版のAPI:http://maa123.official.jp
+*/
 var sml.modname="ScriptMODLoader";
 var sml.version=1;
 var sml.hooks={};
