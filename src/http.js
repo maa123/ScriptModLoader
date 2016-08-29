@@ -1,0 +1,3 @@
+connect.get=function("url"){
+
+};
