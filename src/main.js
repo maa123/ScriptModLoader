@@ -94,7 +94,7 @@ function addHook(hookname,callback){
 function attackHook(attacker, victim){
 	var i = 0;
 	while(i < hooks["attackHook"].length) {
-    	hooks["attackHook"][i];
+    	hooks["attackHook"][i](attacker,victim);
     	i=(i+1)|0;
 	}
 }
