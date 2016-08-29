@@ -91,3 +91,10 @@ function addHook(hookname,callback){
 		break;
 	}
 }
+function attackHook(attacker, victim){
+	var i = 0;
+	while(i < hooks["attackHook"].length) {
+    	hooks["attackHook"][i];
+    	i=(i+1)|0;
+	}
+}
