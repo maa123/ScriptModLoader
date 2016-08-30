@@ -57,7 +57,7 @@ var i = 0;
     	i=(i+1)|0;
 	}
 i=null;
-function addHook(hookname, callback){
+sml.addHook=function(hookname, callback){
 	if(sml.hooknames.indexOf(hookname)>=0){
 		sml.hooks[hookname].push(callback);
 		return true;
