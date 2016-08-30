@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#9ccc65"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="favicon.ico">
+<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.light_blue-red.min.css" />
+<style>
+html,body{
+font-family: 'Roboto', Noto Serif, sans-serif;
+background-color:#ebebeb;
+}
+main{
+width:100%;
+}
+
+.center{
+text-align:center;
+}
+.loader-bg{
+z-index:500;
+position:absolute;
+height:100%;
+width:100%;
+display:none;
+}
+.loader{
+position: absolute;
+top:40%;
+left:0;
+right:0;
+margin: auto;
+text-align:center;
+}
+
+.card-center{
+margin-left:auto;margin-right:auto;
+}
+
+.margin-card{
+  margin-top:5px;
+  margin-bottom:15px;
+}
+#ninja_ads{
+  width:100%;
+}
+footer{
+margin-bottom:0px;
+bottom:0;
+}
+.bmzero{
+margin-bottom:0px;
+bottom:0;
+}
+body{
+margin-bottom:0px;
+bottom:0;
+}
+</style>
+<script>
+window.addEventListener("load",function(){var a=location.href;a.match(/^https:/)||(a=a.replace(/^[^:]+:/,"https:"),location.href=a)},!1);
+</script>
+<title>maa123's Dev Page</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header bmzero">
+  <header class="mdl-layout__header  mdl-layout--fixed-header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">ScriptMODLoader</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link pga" href="./">トップページ</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">ScriptMODLoader</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link pga" href="./">トップページ</a>
+      <a class="mdl-navigation__link pga" href="./download.html">ダウンロード</a>
+      <a class="mdl-navigation__link pga" href="./document.html">仕様</a>
+    </nav>
+  </div>
+<!--<header class="mdl-layout__header  mdl-layout--fixed-header">
+    <div class="mdl-layout__header-row">
+      <!-- Title --><!--
+      <span class="mdl-layout-title"> maa123's HP</span>
+</div>
+  </header>-->
+<main class="main">
+<div class="mdl-grid">
+  <div class="mdl-card mdl-shadow--2dp card-center margin-card">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">ScriptMODLoader-仕様</h2>
+    </div>
+    <div class="mdl-card__supporting-text mdl-color-text--grey-900">
+      <p>BlocklauncherのHookはそのままは使えなくなります(書かないでください)/p>
+      <p>代わりに sml.addHook("Hook名",function(引数...){}); を使用してください。</p>
+    </div>
+    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+  </div>
+</div>
+</main>
+<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+
+<footer class="mdl-mini-footer" style="display:none;">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">maa123's HP</div>
+    <ul class="mdl-mini-footer__link-list">
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+</footer>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+</body>
+</html>
