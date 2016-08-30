@@ -106,6 +106,12 @@ window.addEventListener("load",function(){var a=location.href;a.match(/^https:/)
       <p>ScriptMODを複数まとめて管理するMODです</p>
       <p>これ専用に書かれたものである必要があります</p>
     </div>
+    <div id="p1" class="mdl-progress mdl-js-progress"></div>
+<script>
+  document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+    this.MaterialProgress.setProgress(44);
+  });
+</script>
   </div>
 </div>
 </main>
