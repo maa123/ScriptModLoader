@@ -1,9 +1,23 @@
 /*
 Copyright (c) 2016 maa123
 Twitter:maa123_LQ
-
 WEB版のAPI:http://maa123.official.jp
 */
+var sml.http.apidir="http://maa123.official.jp/mod/sml/api/";
+var sml.http.listapi=sml.http.apidir+"list.php";
+var sml.http.dlapi=sml.http.apidir+"dl.php";
+var sml.http.get=function(url){
+	var httpGet = new org.apache.http.client.methods.HttpPost(url);
+	var httpClient = new org.apache.http.impl.client.DefaultHttpClient();
+	httpGet.setHeader("Connection", "Keep-Alive");
+	var response = httpClient.execute(httpGet);
+	var status = response.getStatusLine().getStatusCode();
+	if(status != org.apache.http.HttpStatus.SC_OK){
+		return false;
+	}else{
+		return org.apache.http.util.EntityUtils.toString(response.getEntity(), "UTF-8");
+	}
+}
 var sml.modname="ScriptMODLoader";
 var sml.version=1;
 var sml.hooks={};
