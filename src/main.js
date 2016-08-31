@@ -6,6 +6,8 @@ WEB版のAPI:http://maa123.official.jp
 */
 var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 
+
+
 var sml.gui.ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var sml.gui.list = function(title,cancelt,items,callback){
 sml.gui.ctx.runOnUiThread(new java.lang.Runnable({
@@ -49,6 +51,17 @@ var sml.http.get=function(url){
 }
 var sml.modname="ScriptMODLoader";
 var sml.version=1;
+//updatecheck
+var thread=new java.lang.Thread(new java.lang.Runnable({run:function(){
+    try{
+        //
+        eval(sml.http.get(sml.http.apidir+"update.php?v="+sml.version));
+    }catch(error){
+        print("エラーが発生しました:sml:updatecheck");
+    }
+}}));
+thread.start();
+
 var sml.hooks={};
 var sml.hooknames=["attackHook","chatHook","continueDestroyBlock","destroyBlock","projectileHitEntityHook","eatHook","entityAddedHook","entityHurtHook","entityRemovedHook","explodeHook","serverMessageReceiveHook","deathHook","playerAddExpHook","playerExpLevelChangeHook","redstoneUpdateHook","screenChangeHook","newLevel","startDestroyBlock","projectileHitBlockHook","modTick","useItem"];
 var i = 0;
