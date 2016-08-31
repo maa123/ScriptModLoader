@@ -65,7 +65,14 @@ sml.addHook=function(hookname, callback){
 		return false;
 	}
 }
-
+sml.mods=[];
+sml.loadscripts=function(){
+	var i = 0;
+	while(i < sml.mods.length) {
+    	eval(sml.mods[i]);
+    	i=(i+1)|0;
+	}
+}
 
 // can use preventDefault()
 function attackHook(attacker, victim){
