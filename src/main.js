@@ -49,6 +49,24 @@ var sml.http.get=function(url){
 		return org.apache.http.util.EntityUtils.toString(response.getEntity(), "UTF-8");
 	}
 }
+var sml.https.post=function(url,postd){
+	var httpsurl = new java.net.URL(url);
+	var httpsc = (javax.net.ssl.HttpsURLConnection)httpsurl.openConnection();
+	httpsc.setRequestMethod("POST");
+	httpsc.setDoOutput(true);
+	var ps = new java.io.PrintStream(httpsc.getOutputStream());
+    ps.print(postd);
+    ps.close();
+	var reader = new java.io.BufferedReader(new java.io.InputStreamReader(httpsc.getInputStream()));
+	var body;
+	var resbody = "";
+	while ((body = reader.readLine()) != null) {
+			resbody=resbody+body;
+	}
+	reader.close();
+	httpsc.disconnect();
+	return resbody;
+}
 var sml.modname="ScriptMODLoader";
 var sml.version=1;
 //updatecheck
