@@ -226,3 +226,9 @@ function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage){
     	i=(i+1)|0;
 	}
 }
+var sml.regItem=function(id,iname,dmg,texture,stack){
+
+};
+var sml.regBlock=function(id,bnamn,texture){
+
+};
