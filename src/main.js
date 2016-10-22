@@ -6,6 +6,8 @@ WEB版のAPI:http://maa123.official.jp
 */
 var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 
+
+
 var sml.gui.ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var sml.gui.list = function(title,cancelt,items,callback){
 sml.gui.ctx.runOnUiThread(new java.lang.Runnable({
@@ -47,8 +49,37 @@ var sml.http.get=function(url){
 		return org.apache.http.util.EntityUtils.toString(response.getEntity(), "UTF-8");
 	}
 }
+var sml.https.post=function(url,postd){
+	var httpsurl = new java.net.URL(url);
+	var httpsc = (javax.net.ssl.HttpsURLConnection)httpsurl.openConnection();
+	httpsc.setRequestMethod("POST");
+	httpsc.setDoOutput(true);
+	var ps = new java.io.PrintStream(httpsc.getOutputStream());
+    ps.print(postd);
+    ps.close();
+	var reader = new java.io.BufferedReader(new java.io.InputStreamReader(httpsc.getInputStream()));
+	var body;
+	var resbody = "";
+	while ((body = reader.readLine()) != null) {
+			resbody=resbody+body;
+	}
+	reader.close();
+	httpsc.disconnect();
+	return resbody;
+}
 var sml.modname="ScriptMODLoader";
 var sml.version=1;
+//updatecheck
+var thread=new java.lang.Thread(new java.lang.Runnable({run:function(){
+    try{
+        //
+        eval(sml.http.get(sml.http.apidir+"update.php?v="+sml.version));
+    }catch(error){
+        print("エラーが発生しました:sml:updatecheck");
+    }
+}}));
+thread.start();
+
 var sml.hooks={};
 var sml.hooknames=["attackHook","chatHook","continueDestroyBlock","destroyBlock","projectileHitEntityHook","eatHook","entityAddedHook","entityHurtHook","entityRemovedHook","explodeHook","serverMessageReceiveHook","deathHook","playerAddExpHook","playerExpLevelChangeHook","redstoneUpdateHook","screenChangeHook","newLevel","startDestroyBlock","projectileHitBlockHook","modTick","useItem"];
 var i = 0;
@@ -65,7 +96,14 @@ sml.addHook=function(hookname, callback){
 		return false;
 	}
 }
-
+sml.mods=[];
+sml.loadscripts=function(){
+	var i = 0;
+	while(i < sml.mods.length) {
+    	eval(sml.mods[i]);
+    	i=(i+1)|0;
+	}
+}
 
 // can use preventDefault()
 function attackHook(attacker, victim){
