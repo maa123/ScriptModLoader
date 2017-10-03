@@ -73,7 +73,7 @@ var sml.version=1;
 var thread=new java.lang.Thread(new java.lang.Runnable({run:function(){
     try{
         //
-        eval(sml.http.get(sml.http.apidir+"update.php?v="+sml.version));
+        eval(sml.https.post(sml.https.apidir+"update.php",sml.version));
     }catch(error){
         print("エラーが発生しました:sml:updatecheck");
     }
