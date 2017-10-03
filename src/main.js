@@ -35,6 +35,7 @@ run: function(){
 }
 
 var sml.http.apidir="http://maa123.official.jp/mod/sml/api/";
+var sml.https.apidir="https://api.mcpejp.net/mod/sml/";
 var sml.http.listapi=sml.http.apidir+"list.php";
 var sml.http.dlapi=sml.http.apidir+"dl.php";
 var sml.http.get=function(url){
